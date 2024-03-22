@@ -1,0 +1,118 @@
+:root{
+  --escala : 300px;
+  --giroRuleta: 0deg;
+}
+#ruleta{
+  position: relative;
+  width: var(--escala);
+  height: var(--escala);
+  border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+
+}
+#total{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+#opcion{
+
+}
+#formatoPreguntas{
+  position: relative;
+  top: 70px;
+  align-items: center;
+}
+
+
+.opcion{
+  position: absolute;
+  width: var(--escala);
+  height: var(--escala);
+  
+}
+
+#container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  top: 60px;
+}
+#cartelGanador{
+  position: absolute;
+  left: -70px;
+  top: -40px;
+  background-color: aquamarine;
+  min-height: 55px;
+  width: 150px;
+  font-weight: bold;
+  text-align: center;
+}
+#ganador{
+  position: absolute;
+  z-index: 10;
+  top: -20px;
+  background-color: black;
+  height: 50px;
+  width: 5px;
+  pointer-events: none;
+}
+
+.girar{
+  animation-name: girar;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-beziercubic-bezier(0,0,.26,1.19);
+}
+
+@keyframes girar{
+  100%{
+    transform: rotate(var(--giroRuleta));
+  }
+}
+
+.opcionsel {
+  display: block;
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.opcionsel:hover {
+  background-color: #e9e9e9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.opcionsel.selected {
+  background-color: #040cfb;
+  color: white;
+  border-color: #b6dcb6;
+}
+
+
+.opcionsel.disabled {
+  pointer-events: none; 
+  opacity: 0.5; 
+  cursor: default;
+}
+
+.invisible{
+  display: none;
+}
+
+button.inactive{
+
+  cursor: not-allowed;
+  pointer-events:none;
+}
